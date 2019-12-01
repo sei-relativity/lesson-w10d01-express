@@ -252,7 +252,7 @@ Get together with your buddy. Remember: We are here and you can still ask questi
 
 http://expressjs.com/en/starter/basic-routing.html
 
-1. Write a second route underneath the first that listens for `/greeting` and responds with `'Hey, SEI Eternity!'`
+1. Write a second route underneath the first that listens for `/greeting` and responds with `'Hey, SEI Relativity!'`
 
 1. Write a third route underneath the that one that listens for `/rihanna` and responds with `"Work work work work work"`
 
@@ -261,7 +261,7 @@ http://expressjs.com/en/starter/basic-routing.html
 
 ```javascript
 app.get('/greeting', function(req, res) {
-  res.send('Hey, SEI Eternity!');
+  res.send('Hey, SEI Relativity!');
 });
 
 app.get('/rihanna', function(req, res) {
@@ -414,9 +414,9 @@ You actually use query parameters all the time on Amazon, Ebay, Airbnb, etc. - a
   sights: `<how many ufo sightings you think there are in that state>`
 }
 ```
-Also, send a response that asks 'How many ufo sightings do you think there are in `the state`?   `the answer`.'
+2. Also, send a response that asks 'How many ufo sightings do you think there are in `the state`?   `the answer`.'
 
-2. Write a `/bigfoot` route that takes a query parameter of `blurry` and...
+3. Write a `/bigfoot` route that takes a query parameter of `blurry` and...
    - If blurry is true, send the response: `"It's not the photographer's fault. Bigfoot is blurry, and that's extra scary to me. There's a large, out-of-focus monster roaming the countryside. Run! He's fuzzy! Get out of there!"` 
    - If blurry is false, respond with:  `"A group of researchers have amassed evidence that the legendary Bigfoot is real, ABC News reported, with the scientists presenting reams of evidence."`
 
@@ -566,8 +566,9 @@ Add a Route to List People:
 ```javascript
 let people = [
   {firstName: 'Usman', lastName: 'Bashir'},
-  {firstName: 'Marc', lastName: 'Wright'},
-  {firstName: 'Alanoud', lastName: 'Alrasheed'},
+  {firstName: 'Reem', lastName: 'AlHarbi'},
+  {firstName: 'Mansour', lastName: 'Almohsen'},
+  {firstName: 'Hazim', lastName: 'Alblowi'},
 ];
 
 app.get('/api/people', function(req, res) {
@@ -719,7 +720,7 @@ const router = express.Router(); // use the router module from express
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.json({ message: 'Hello SEI Eternity' });
+  res.json({ message: 'Hello SEI Relativity' });
 });
 
 module.exports = router; // export the router object so we can use it in server.js
