@@ -1,23 +1,23 @@
 const express = require("express");
-const router = express.Router();
+const router  = express.Router();
 
 // Dummy Data
 let people = [
   {
     firstName: "Moayad",
-    lastName: "Alnuwaysir"
+    lastName : "Alnuwaysir"
   },
   {
     firstName: "Abbas",
-    lastName: "Alabbas"
+    lastName : "Alabbas"
   },
   {
     firstName: "Murtatha",
-    lastName: "Almurtatha"
+    lastName : "Almurtatha"
   },
   {
     firstName: "Fathiyah",
-    lastName: "Alfathiyah"
+    lastName : "Alfathiyah"
   }
 ];
 
@@ -53,6 +53,43 @@ router.post("/api/people", (req, res) => {
   people.push(req.body.person);
 
   res.status(201).json({ people: people });
+});
+
+// Update a person
+router.put("/api/people/:id", (req, res) => {
+  const personID = req.params.id;
+
+  if (!isNaN(personID)) {
+    const person = people[personID];
+
+    if (person !== undefined) {
+      people[personID] = req.body;
+      res.json({ person: req.body });
+    } else {
+      res.status(404).json({ error: "Person Not Found" });
+    }
+  } else {
+    // Invalid ID Case
+    res.status(406).json({ error: "Invalid ID" });
+  }
+});
+
+// Delete a person
+router.delete("/api/people/:id", (req, res) => {
+  const personID = req.params.id;
+
+  if (!isNaN(personID)) {
+    const person = people[personID];
+
+    if (person !== undefined) {
+      people[personID] = {};
+    } else {
+      res.status(404).json({ error: "Person Not Found" });
+    }
+  } else {
+    // Invalid ID Case
+    res.status(406).json({ error: "Invalid ID" });
+  }
 });
 
 module.exports = router;
